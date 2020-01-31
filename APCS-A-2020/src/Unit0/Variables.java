@@ -19,16 +19,18 @@ public class Variables
 
 		//integer variables
 		byte byteOne = 127;
-
-
+		int intager = 3;
+		
 		//decimal variables
-
-
+		double dooooble = 3.1415926535;
+		float flowwwwat = 1.0f;
+		
 		//other integer types
-
-
+		long lwong = 21313;
+		short smol = 1;		
+		
 		//other types
-
+		boolean truefalse = true;
 
 		//output your information here
 		System.out.println("/////////////////////////////////");
