@@ -2,9 +2,9 @@ package Unit0;
 //(c) A+ Computer Science
 //www.apluscompsci.com
 
-//Name -
-//Date -
-//Class -
+//Name - Andrew Tian
+//Date - 2/2/2020
+//Class - AP CSA
 //Lab  -
 
 public class AsciiBox
