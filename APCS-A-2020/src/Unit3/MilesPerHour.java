@@ -24,6 +24,9 @@ public class MilesPerHour
 
 	public MilesPerHour(int dist, int hrs, int mins)
 	{
+		distance = dist;
+		hours = hrs;
+		minutes = mins;
 	}
 
 	public void setNums(int dist, int hrs, int mins)
@@ -32,6 +35,7 @@ public class MilesPerHour
 
 	public void calcMPH()
 	{
+		int newint = distance + minutes;
 	}
 
 	public void print()
