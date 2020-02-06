@@ -18,22 +18,19 @@ public class Distance
 
 	public Distance()
 	{
-		Scanner keyboard = new Scanner(System.in);
-
-		//ask for the input here
-		System.out.print("Enter X1 :: ");
-		int x1 = keyboard.nextInt();
-		System.out.print("Enter Y1 :: ");
-		int y1 = keyboard.nextInt();
-		System.out.print("Enter X2 :: ");
-		int x2 = keyboard.nextInt();
-		System.out.print("Enter Y2 :: ");
-		int y2 = keyboard.nextInt();
+		xOne = 0;
+		xTwo = 0;
+		yOne = 0;
+		yTwo = 0;
+		distance = 0.0;
 	}
 
 	public Distance(int x1, int y1, int x2, int y2)
 	{
-		distance = Math.pow(Math.pow(x1-x2, 2) + Math.pow(y1-y2, 2), 2);
+		xOne = x1;
+		xTwo = y1;
+		yOne = x2;
+		yTwo = y2;		
 	}
 
 	public void setCoordinates(int x1, int y1, int x2, int y2)
@@ -42,15 +39,17 @@ public class Distance
 
 	public void calcDistance()
 	{
+		distance = (double) (double) Math.pow(Math.pow( (double) xOne- (double) xTwo, 2) + (double) Math.pow( (double) yOne-(double) yTwo, 2), 0.5);
 	}
 	
 	public double getDistance()
 	{
-		return 0.0;
+		return distance;
 	}
 	
 	public void print()
 	{
+		System.out.println("Distance == " + distance);
 	}
 	
 	//complete print or the toString
