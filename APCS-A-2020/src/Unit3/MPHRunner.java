@@ -17,7 +17,7 @@ public class MPHRunner
 	{
 		Scanner keyboard = new Scanner(in);
 
-		out.print("Enter the distance :: ");
+		out.print("Enter the distance (in miles) :: ");
 		int dist = keyboard.nextInt();
 
 		out.print("Enter the hours :: ");
