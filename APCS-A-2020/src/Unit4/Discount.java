@@ -2,7 +2,7 @@ package Unit4;
 //(c) A+ Computer Science
 //www.apluscompsci.com
 
-//Name - 
+//Name - Andrew tian
 //Date -
 //Class -
 //Lab  -
@@ -18,6 +18,9 @@ public class Discount
 	//			if the bill is >2000, the bill receives a 15% discount
 	public static double getDiscountedBill(double bill)
 	{
-		return 0;
+		if (bill > 2000) {
+			return bill - bill * 0.15; 
+		}
+		return bill;
 	}
 }

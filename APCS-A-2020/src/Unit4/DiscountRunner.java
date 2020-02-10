@@ -2,7 +2,7 @@ package Unit4;
 //(c) A+ Computer Science
 //www.apluscompsci.com
 
-//Name - 
+//Name - Andrew Tian
 //Date -
 //Class -
 //Lab  -
@@ -18,7 +18,8 @@ public class DiscountRunner
 		
 		out.print("Enter the original bill amount :: ");
 		double amt = keyboard.nextDouble();
-		
-
+		Discount bruh = new Discount();
+		amt = bruh.getDiscountedBill(amt);
+		System.out.println(amt);
 	}
 }
