@@ -23,10 +23,15 @@ public class StringEquality
 
 	public void setWords(String one, String two)
 	{
+		wordOne = one;
+		wordTwo = two;
 	}
 
 	public boolean checkEquality( )
 	{
+		if (wordOne.equals(wordTwo)) {
+			return true;
+		}
 		return false;
 	}
 
