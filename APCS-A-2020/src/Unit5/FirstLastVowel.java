@@ -8,6 +8,9 @@ public class FirstLastVowel {
 
 
 	   public static String go( String a ) {
-			return "add code here";
+		   int i = 0;
+		   list vowels = ['a','e','i','o','u','A','E','I','O','U'];
+		   if (a.charAt(0) = )	
+		   return "add code here";
 		}
 	}
