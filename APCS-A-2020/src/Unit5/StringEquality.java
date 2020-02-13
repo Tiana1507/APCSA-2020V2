@@ -27,7 +27,7 @@ public class StringEquality
 		wordTwo = two;
 	}
 
-	public boolean checkEquality( )
+	public boolean checkEquality()
 	{
 		return true;
 	}
