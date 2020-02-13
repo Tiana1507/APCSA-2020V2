@@ -25,6 +25,6 @@ public class StringEqualityRunner
 		Same Same
 		*/
 		StringEquality stringtester = new StringEquality();
-		System.out.println(stringtester.checkEquality());
+		stringtester.checkEquality();
 	}
 }
