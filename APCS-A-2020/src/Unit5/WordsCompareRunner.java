@@ -16,7 +16,29 @@ public class WordsCompareRunner
 	 WordsCompare wordcompare = new WordsCompare();
 	 wordcompare.setWords("abe","ape");
 	 wordcompare.compare();
-	 wordcompare.toString();//add test cases
+	 System.out.println(wordcompare.toString());
+	 wordcompare.setWords("giraffe","gorilla");
+	 wordcompare.compare();
+	 System.out.println(wordcompare.toString());	 
+	 wordcompare.setWords("one","two");
+	 wordcompare.compare();
+	 System.out.println(wordcompare.toString());	 
+	 wordcompare.setWords("fun","funny");
+	 wordcompare.compare();
+	 System.out.println(wordcompare.toString());
+	 wordcompare.setWords("123","19");
+	 wordcompare.compare();
+	 System.out.println(wordcompare.toString());
+	 wordcompare.setWords("193","1910");
+	 wordcompare.compare();
+	 System.out.println(wordcompare.toString());
+	 wordcompare.setWords("goofy","godfather");
+	 wordcompare.compare();
+	 System.out.println(wordcompare.toString());
+	 wordcompare.setWords("funnel","fun");
+	 wordcompare.compare();
+	 System.out.println(wordcompare.toString());
+	 //add test cases
 	 /*
 	 	abe ape
 		giraffe gorilla
