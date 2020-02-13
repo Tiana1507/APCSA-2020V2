@@ -24,7 +24,7 @@ public class StringEqualityRunner
 		ABC CBA
 		Same Same
 		*/
-		StringEquality stringtester = new StringEquality("hello", "bruh");
+		StringEquality stringtester = new StringEquality();
 		System.out.println(stringtester.checkEquality());
 	}
 }
