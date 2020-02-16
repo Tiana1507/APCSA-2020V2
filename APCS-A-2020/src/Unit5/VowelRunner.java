@@ -1,7 +1,7 @@
 package Unit5;
 //(c) A+ Computer Science
 //www.apluscompsci.com
-//Name -
+//Name - Andrew Tian
 //Date -
 
 public class VowelRunner
@@ -24,3 +24,28 @@ public class VowelRunner
 	}
 }
 
+/* desired output
+ * no
+no
+yes
+yes
+no
+yes
+no
+no
+no
+no
+*/
+
+/* MY output (GOT IT)
+no
+no
+yes
+yes
+no
+yes
+no
+no
+no
+no
+*/

@@ -27,16 +27,16 @@ public class StringEquality
 		wordTwo = two;
 	}
 
-	public boolean checkEquality( )
+	public boolean checkEquality()
 	{
-		if (wordOne.equals(wordTwo)) {
-			return true;
-		}
-		return false;
+		return true;
 	}
 
 	public String toString()
 	{
+		if (wordOne.equals(wordTwo)) {
+			return wordOne + " has the same letters as " + wordTwo + "\n";
+		}
 		return wordOne + " does not have the same letters as " + wordTwo + "\n";
 	}
 }
