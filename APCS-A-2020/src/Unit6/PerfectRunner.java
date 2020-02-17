@@ -1,6 +1,6 @@
 //(c) A+ Computer Science
 //www.apluscompsci.com
-//Name -
+//Name - andrew tian
 package Unit6;
 import static java.lang.System.*; 
 
