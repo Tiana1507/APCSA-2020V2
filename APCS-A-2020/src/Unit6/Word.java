@@ -1,6 +1,6 @@
 //(c) A+ Computer Science
 //www.apluscompsci.com
-//Name
+//Name Andrew Tian
 package Unit6;
 import static java.lang.System.*;
 
@@ -18,26 +18,35 @@ public class Word
 
 	public void setString(String s)
 	{
+		word = s;
 	}
 
 	public char getFirstChar()
 	{
-		return 0;
+		return word.charAt(0);
 	}
 
 	public char getLastChar()
 	{
-		return 0;
+		//System.out.println(word.length());
+		if (word.length() == 1)
+			return word.charAt(0);
+		return word.charAt(word.length()-1);
 	}
 
 	public String getBackWards()
 	{
+		int runcounter = word.length();
 		String back="";
+		while (runcounter > 0) {
+			back = back + word.charAt(runcounter - 1);
+			runcounter -= 1;
+		}
 		return back;
 	}
 
  	public String toString()
  	{
- 		return "";
+ 		return word;
 	}
 }
