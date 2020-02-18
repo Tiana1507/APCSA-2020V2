@@ -28,7 +28,6 @@ public class LetterRemover
 		String toreplace = "" + lookFor;
 		sentence = sentence.replaceAll(toreplace,"");
 		
-		
 		/*
 		int runtime = sentence.length();
 		while (runtime > 1) {
