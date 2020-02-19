@@ -20,7 +20,7 @@ public class Review {
   
   static{
     try {
-      Scanner input = new Scanner(new File("cleanSentiment.csv"));
+      Scanner input = new Scanner(new File("src/ConsumerLab/cleanSentiment.csv"));
       while(input.hasNextLine()){
         String[] temp = input.nextLine().split(",");
         sentiment.put(temp[0],Double.parseDouble(temp[1]));
@@ -35,7 +35,7 @@ public class Review {
   
   //read in the positive adjectives in postiveAdjectives.txt
      try {
-      Scanner input = new Scanner(new File("positiveAdjectives.txt"));
+      Scanner input = new Scanner(new File("src/ConsumerLab/positiveAdjectives.txt"));
       while(input.hasNextLine()){
         String temp = input.nextLine().trim();
         System.out.println(temp);
@@ -49,7 +49,7 @@ public class Review {
  
   //read in the negative adjectives in negativeAdjectives.txt
      try {
-      Scanner input = new Scanner(new File("negativeAdjectives.txt"));
+      Scanner input = new Scanner(new File("src/ConsumerLab/negativeAdjectives.txt"));
       while(input.hasNextLine()){
         negAdjectives.add(input.nextLine().trim());
       }
@@ -153,18 +153,31 @@ public class Review {
   public static double totalSentiment(String filename)
   {
     // read in the file contents into a string using the textToString method with the filename
-
+	  String content = textToString(filename);
     // set up a sentimentTotal variable
-
+	  double sentimentTotal = 0.0;
+	  int spacecounter = 0;
     // loop through the file contents 
 
+	  for (int i = 0;i < content.length();i++) {
+		  if (content.charAt(i) == ' ') {
+			  sentimentTotal += sentimentVal(content.substring(i-spacecounter,i));
+			  spacecounter = 0;
+		  }
+		  else if (i == content.length() - 1 ) {
+			  sentimentTotal += sentimentVal(content.substring(i-spacecounter,i+1));
+			  spacecounter = 0;
+		  }
+		  else {
+			  spacecounter += 1;
+		  }
+	  }
+	  
        // find each word
        // add in its sentimentVal
        // set the file contents to start after this word
    
    
-
-
 	  
    return sentimentTotal; 
   }
@@ -176,14 +189,39 @@ public class Review {
   public static int starRating(String filename)
   {
     // call the totalSentiment method with the fileName
-
+	double value = totalSentiment("src/ConsumerLab/positiveAdjectives.txt");  
+	  
     // determine number of stars between 0 and 4 based on totalSentiment value 
-    int stars;
+    int stars = 0;
     // write if statements here
+    if (value >= 0 && value <= 2) {
+    	stars = 3;
+    }
+    else if (value > 2) {
+    	stars = 4;
+    }
+    else if (value >= -1 && value < 0) {
+    	stars = 2;
+    }
+    else if (value >= -2 && value < -1) {
+    	stars = 1;
+    }
+    else {
+    	stars = 0;
+    }
 
 
   
     // return number of stars
     return stars; 
+  }
+  
+  
+  //Activity 3
+  public static String fakeReview(String filename) {
+	String fakereview = "";
+	
+	  return fakereview;
+	  
   }
 }
