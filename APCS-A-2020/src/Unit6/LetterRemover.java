@@ -25,6 +25,7 @@ public class LetterRemover
 
 	public String removeLetters()
 	{
+		//alternate solution that doesn't use a while loop.
 		String toreplace = "" + lookFor;
 		sentence = sentence.replaceAll(toreplace,"");
 		
