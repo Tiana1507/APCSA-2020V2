@@ -220,8 +220,28 @@ public class Review {
   //Activity 3
   public static String fakeReview(String filename) {
 	String fakereview = "";
-	
-	  return fakereview;
+	String content = textToString(filename);
+	Boolean wegotone = false;
+	int spacecounter = 0;
+	for (int i = 0;i < content.length();i++) {
+		if (content.charAt(i) == '*') {
+			  spacecounter = 0;
+		}
+		else if (i) {
+			
+		}
+		
+		
+		
+		
+		else if (i == content.length() - 1 ) {
+			  spacecounter = 0;
+		}
+		else {
+			  spacecounter += 1;
+		}
+	}
+	return fakereview;
 	  
   }
 }
