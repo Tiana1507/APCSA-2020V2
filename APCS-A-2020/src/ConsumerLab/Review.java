@@ -163,11 +163,16 @@ public class Review {
 	  for (int i = 0;i < content.length();i++) {
 		  if (content.charAt(i) == ' ') {
 			  sentimentTotal += sentimentVal(content.substring(i-spacecounter,i));
+			  //if (sentimentVal(content.substring(i-spacecounter,i)) != 0) {
+				  //System.out.println("Found a word(reg)");
+			  //}
 			  spacecounter = 0;
 		  }
 		  else if (i == content.length() - 1 ) {
 			  sentimentTotal += sentimentVal(content.substring(i-spacecounter,i+1));
 			  spacecounter = 0;
+			  System.out.println("Found a word(alsoendcond)");				  //System.out.println("Found a word(endcond)");
+			  //}
 		  }
 		  else {
 			  spacecounter += 1;

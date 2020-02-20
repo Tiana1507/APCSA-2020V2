@@ -8,15 +8,13 @@ class Main {
 	//test reading from files
 	//read in the positive adjectives in postiveAdjectives.txt
 	  
-	  System.out.println("Sentiment Value: " + Review.totalSentiment("src/ConsumerLab/positiveAdjectives.txt"));
-	  System.out.println("Star Rating: " + Review.starRating("src/ConsumerLab/positiveAdjectives.txt"));
-	  System.out.println("Sentiment Value: " + Review.totalSentiment("src/ConsumerLab/26WestReview.txt"));
-	  System.out.println("Star Rating: " + Review.starRating("src/ConsumerLab/simpleReview.txt"));
+	  System.out.println("Sentiment Value of negAdj: " + Review.totalSentiment("src/ConsumerLab/negativeAdjectives.txt"));
+	  System.out.println("Star Rating of posAdj: " + Review.starRating("src/ConsumerLab/positiveAdjectives.txt"));
 	  System.out.println("Fake Review: " + Review.fakeReview("src/ConsumerLab/simpleReview.txt"));
 	  System.out.println("Fake Positive Review: " + Review.negativefakeReview("src/ConsumerLab/simpleReview.txt"));
 	  System.out.println("Fake Negative Review: " + Review.positivefakeReview("src/ConsumerLab/simpleReview.txt"));
 	  
-	try {
+	/*try {
 		Scanner input = new Scanner(new File("src/ConsumerLab/positiveAdjectives.txt"));
 		while(input.hasNextLine()){
 			String temp = input.nextLine().trim();
@@ -27,6 +25,6 @@ class Main {
 	}
 	catch(Exception e){
 		System.out.println("Error reading or parsing postitiveAdjectives.txt\n" + e);
+		*/
 	}   
-  }
 }
