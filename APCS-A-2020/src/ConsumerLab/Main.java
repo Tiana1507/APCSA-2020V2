@@ -8,9 +8,11 @@ class Main {
 	//test reading from files
 	//read in the positive adjectives in postiveAdjectives.txt
 	  
-	  System.out.println("Sentiment Value: " + Review.totalSentiment("src/ConsumerLab/positiveAdjectives.txt"));
-	  System.out.println("Star Rating: " + Review.starRating("src/ConsumerLab/positiveAdjectives.txt"));
-	  System.out.println("Try to Manipulate the Review: " + Review.fakeReview("src/ConsumerLab/simpleReview.txt"));
+	  System.out.println("Sentiment Value: " + Review.totalSentiment("src/ConsumerLab/simpleReview.txt"));
+	  System.out.println("Star Rating: " + Review.starRating("src/ConsumerLab/simpleReview.txt"));
+	  System.out.println("Fake Review: " + Review.fakeReview("src/ConsumerLab/simpleReview.txt"));
+	  System.out.println("Fake Positive Review: " + Review.negativefakeReview("src/ConsumerLab/simpleReview.txt"));
+	  System.out.println("Fake Negative Review: " + Review.positivefakeReview("src/ConsumerLab/simpleReview.txt"));
 	  
 	try {
 		Scanner input = new Scanner(new File("src/ConsumerLab/positiveAdjectives.txt"));

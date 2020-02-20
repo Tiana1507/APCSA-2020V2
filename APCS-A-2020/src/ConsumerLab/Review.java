@@ -190,18 +190,18 @@ public class Review {
   public static int starRating(String filename)
   {
     // call the totalSentiment method with the fileName
-	double value = totalSentiment("src/ConsumerLab/positiveAdjectives.txt");  
+	double value = totalSentiment(filename);  
 	  
     // determine number of stars between 0 and 4 based on totalSentiment value 
     int stars = 0;
     // write if statements here
-    if (value >= 0 && value <= 2) {
+    if (value >= 2 && value <= 5) {
     	stars = 3;
     }
-    else if (value > 2) {
+    else if (value > 5) {
     	stars = 4;
     }
-    else if (value >= -1 && value < 0) {
+    else if (value >= -1 && value < 2) {
     	stars = 2;
     }
     else if (value >= -2 && value < -1) {
@@ -232,7 +232,14 @@ public class Review {
 		else if (content.charAt(i) == ' ' && wegotone == true) {
 			//stores the chars after that and replaces them here
 			storage = content.substring(i-spacecounter,i);
-			content = content.replaceAll(storage,"boomer");
+			content = content.replaceAll(storage,randomAdjective());
+			wegotone = false;
+			spacecounter = 0;
+		}
+		else if (content.charAt(i) == '.' && wegotone == true) {
+			//stores the chars after that and replaces them here
+			storage = content.substring(i-spacecounter,i);
+			content = content.replaceAll(storage,randomAdjective());
 			wegotone = false;
 			spacecounter = 0;
 		}
@@ -243,7 +250,79 @@ public class Review {
 			  spacecounter = 0;
 		}
 	}
+	content = content.replace("*","");
 	return content;
 	  
   }
+  
+  //activity 4
+  public static String negativefakeReview(String filename) {
+		String content = textToString(filename);
+		Boolean wegotone = false;
+		String storage = "";
+		int spacecounter = 0;
+		for (int i = 0; i < content.length();i++) {
+			if (content.charAt(i) == '*') {
+				  spacecounter = 0;
+				  wegotone = true;
+			}
+			else if (content.charAt(i) == ' ' && wegotone == true) {
+				//stores the chars after that and replaces them here
+				storage = content.substring(i-spacecounter,i);
+				content = content.replaceAll(storage,randomNegativeAdj());
+				wegotone = false;
+				spacecounter = 0;
+			}
+			else if (content.charAt(i) == '.' && wegotone == true) {
+				//stores the chars after that and replaces them here
+				storage = content.substring(i-spacecounter,i);
+				content = content.replaceAll(storage,randomNegativeAdj());
+				wegotone = false;
+				spacecounter = 0;
+			}
+			else if (wegotone == true) {
+				spacecounter +=1;
+			}
+			else if (i == content.length() - 1 ) {
+				  spacecounter = 0;
+			}
+		}
+		content = content.replace("*","");
+		return content;
+  }
+  public static String positivefakeReview(String filename) {
+		String content = textToString(filename);
+		Boolean wegotone = false;
+		String storage = "";
+		int spacecounter = 0;
+		for (int i = 0; i < content.length();i++) {
+			if (content.charAt(i) == '*') {
+				  spacecounter = 0;
+				  wegotone = true;
+			}
+			else if (content.charAt(i) == ' ' && wegotone == true) {
+				//stores the chars after that and replaces them here
+				storage = content.substring(i-spacecounter,i);
+				content = content.replaceAll(storage,randomPositiveAdj());
+				wegotone = false;
+				spacecounter = 0;
+			}
+			else if (content.charAt(i) == '.' && wegotone == true) {
+				//stores the chars after that and replaces them here
+				storage = content.substring(i-spacecounter,i);
+				content = content.replaceAll(storage,randomPositiveAdj());
+				wegotone = false;
+				spacecounter = 0;
+			}
+			else if (wegotone == true) {
+				spacecounter +=1;
+			}
+			else if (i == content.length() - 1 ) {
+				  spacecounter = 0;
+			}
+		}
+			content = content.replace("*","");
+		return content;
+  }
+  
 }
