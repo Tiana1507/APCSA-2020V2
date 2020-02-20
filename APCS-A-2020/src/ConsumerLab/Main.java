@@ -1,6 +1,7 @@
 package ConsumerLab;
 import java.io.File;
 import java.util.Scanner;
+import java.lang.*;
 
 class Main {
   public static void main(String[] args) {
@@ -9,6 +10,7 @@ class Main {
 	  
 	  System.out.println("Sentiment Value: " + Review.totalSentiment("src/ConsumerLab/positiveAdjectives.txt"));
 	  System.out.println("Star Rating: " + Review.starRating("src/ConsumerLab/positiveAdjectives.txt"));
+	  System.out.println("Try to Manipulate the Review: " + Review.fakeReview("src/ConsumerLab/simpleReview.txt"));
 	  
 	try {
 		Scanner input = new Scanner(new File("src/ConsumerLab/positiveAdjectives.txt"));

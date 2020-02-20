@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.ArrayList;
 import java.util.Random;
 import java.io.*;
+import java.lang.*;
 
 /**
  * Class that contains helper methods for the Review Lab
@@ -219,29 +220,30 @@ public class Review {
   
   //Activity 3
   public static String fakeReview(String filename) {
-	String fakereview = "";
 	String content = textToString(filename);
 	Boolean wegotone = false;
+	String storage = "";
 	int spacecounter = 0;
-	for (int i = 0;i < content.length();i++) {
+	for (int i = 0; i < content.length();i++) {
 		if (content.charAt(i) == '*') {
 			  spacecounter = 0;
+			  wegotone = true;
 		}
-		else if (i) {
-			
+		else if (content.charAt(i) == ' ' && wegotone == true) {
+			//stores the chars after that and replaces them here
+			storage = content.substring(i-spacecounter,i);
+			content = content.replaceAll(storage,"boomer");
+			wegotone = false;
+			spacecounter = 0;
 		}
-		
-		
-		
-		
+		else if (wegotone == true) {
+			spacecounter +=1;
+		}
 		else if (i == content.length() - 1 ) {
 			  spacecounter = 0;
 		}
-		else {
-			  spacecounter += 1;
-		}
 	}
-	return fakereview;
+	return content;
 	  
   }
 }
