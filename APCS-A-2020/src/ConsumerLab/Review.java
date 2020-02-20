@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.ArrayList;
 import java.util.Random;
 import java.io.*;
+import java.lang.*;
 
 /**
  * Class that contains helper methods for the Review Lab
@@ -189,18 +190,18 @@ public class Review {
   public static int starRating(String filename)
   {
     // call the totalSentiment method with the fileName
-	double value = totalSentiment("src/ConsumerLab/positiveAdjectives.txt");  
+	double value = totalSentiment(filename);  
 	  
     // determine number of stars between 0 and 4 based on totalSentiment value 
     int stars = 0;
     // write if statements here
-    if (value >= 0 && value <= 2) {
+    if (value >= 2 && value <= 10) {
     	stars = 3;
     }
-    else if (value > 2) {
+    else if (value > 10) {
     	stars = 4;
     }
-    else if (value >= -1 && value < 0) {
+    else if (value >= -1 && value < 2) {
     	stars = 2;
     }
     else if (value >= -2 && value < -1) {
@@ -219,29 +220,109 @@ public class Review {
   
   //Activity 3
   public static String fakeReview(String filename) {
-	String fakereview = "";
 	String content = textToString(filename);
 	Boolean wegotone = false;
+	String storage = "";
 	int spacecounter = 0;
-	for (int i = 0;i < content.length();i++) {
+	for (int i = 0; i < content.length();i++) {
 		if (content.charAt(i) == '*') {
 			  spacecounter = 0;
+			  wegotone = true;
 		}
-		//else if (i) {
-			
-		//}
-		
-		
-		
-		
+		else if (content.charAt(i) == ' ' && wegotone == true) {
+			//stores the chars after that and replaces them here
+			storage = content.substring(i-spacecounter,i);
+			content = content.replaceAll(storage,randomAdjective());
+			wegotone = false;
+			spacecounter = 0;
+		}
+		else if (content.charAt(i) == '.' && wegotone == true) {
+			//stores the chars after that and replaces them here
+			storage = content.substring(i-spacecounter,i);
+			content = content.replaceAll(storage,randomAdjective());
+			wegotone = false;
+			spacecounter = 0;
+		}
+		else if (wegotone == true) {
+			spacecounter +=1;
+		}
 		else if (i == content.length() - 1 ) {
 			  spacecounter = 0;
 		}
-		else {
-			  spacecounter += 1;
-		}
 	}
-	return fakereview;
+	content = content.replace("*","");
+	return content;
 	  
   }
+  
+  //activity 4
+  public static String negativefakeReview(String filename) {
+		String content = textToString(filename);
+		Boolean wegotone = false;
+		String storage = "";
+		int spacecounter = 0;
+		for (int i = 0; i < content.length();i++) {
+			if (content.charAt(i) == '*') {
+				  spacecounter = 0;
+				  wegotone = true;
+			}
+			else if (content.charAt(i) == ' ' && wegotone == true) {
+				//stores the chars after that and replaces them here
+				storage = content.substring(i-spacecounter,i);
+				content = content.replaceAll(storage,randomNegativeAdj());
+				wegotone = false;
+				spacecounter = 0;
+			}
+			else if (content.charAt(i) == '.' && wegotone == true) {
+				//stores the chars after that and replaces them here
+				storage = content.substring(i-spacecounter,i);
+				content = content.replaceAll(storage,randomNegativeAdj());
+				wegotone = false;
+				spacecounter = 0;
+			}
+			else if (wegotone == true) {
+				spacecounter +=1;
+			}
+			else if (i == content.length() - 1 ) {
+				  spacecounter = 0;
+			}
+		}
+		content = content.replace("*","");
+		return content;
+  }
+  public static String positivefakeReview(String filename) {
+		String content = textToString(filename);
+		Boolean wegotone = false;
+		String storage = "";
+		int spacecounter = 0;
+		for (int i = 0; i < content.length();i++) {
+			if (content.charAt(i) == '*') {
+				  spacecounter = 0;
+				  wegotone = true;
+			}
+			else if (content.charAt(i) == ' ' && wegotone == true) {
+				//stores the chars after that and replaces them here
+				storage = content.substring(i-spacecounter,i);
+				content = content.replaceAll(storage,randomPositiveAdj());
+				wegotone = false;
+				spacecounter = 0;
+			}
+			else if (content.charAt(i) == '.' && wegotone == true) {
+				//stores the chars after that and replaces them here
+				storage = content.substring(i-spacecounter,i);
+				content = content.replaceAll(storage,randomPositiveAdj());
+				wegotone = false;
+				spacecounter = 0;
+			}
+			else if (wegotone == true) {
+				spacecounter +=1;
+			}
+			else if (i == content.length() - 1 ) {
+				  spacecounter = 0;
+			}
+		}
+			content = content.replace("*","");
+		return content;
+  }
+  
 }
