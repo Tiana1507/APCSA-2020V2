@@ -4,6 +4,7 @@ package Unit7;
 //Name -
 
 import static java.lang.System.*;
+import java.lang.*;
 
 public class TriangleFive
 {
@@ -20,7 +21,7 @@ public class TriangleFive
 
 	public void setLetter(char c)
 	{
-		c = letter;
+		letter = c;
 	}
 
 	public void setAmount(int amt)
@@ -30,14 +31,23 @@ public class TriangleFive
 
 	public String toString()
 	{
-		int cyclecounter = 0;
+		int cyclecounter = amount;
 		String alphabet ="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 		int theindex = alphabet.indexOf(letter);
 		while (amount > 0) {
-			for (int i = amount; i > 0; i--) {
-				System.out.print(alphabet.charAt(theindex));
+			cyclecounter = amount;
+			while (cyclecounter > 0) {
+				for (int i = cyclecounter + 1; i > 0; i--) {
+					//modulo in order to ensure word wrap works
+					theindex = Math.abs(theindex % 26);
+					System.out.print(alphabet.charAt((theindex)));
+				}
+				System.out.print(" ");
+				cyclecounter -= 1;
+				theindex += 1;
 			}
-			System.out.print(" ");
+			System.out.println("");
+			theindex = alphabet.indexOf(letter);
 			amount -= 1;
 		}
 		
