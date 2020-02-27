@@ -8,21 +8,18 @@ public class BlackJackCard extends Card
   	//constructors
   	public BlackJackCard( String s, int f)
   	{
-  		/*
   		super( s, f );
-  		*/
   	}
 
   	//accessors
 	public int getValue()
 	{
-		/*
-		if( getFace() == 1 )
+		Card boomer = new Card("SPADES", 9);
+		if(boomer.getFace() == 1 )
 			return 11;
-		if( getFace() >= 10 )
+		if(boomer.getFace() >= 10 )
 			return 10;
-		return getFace();
-		*/
+		return boomer.getFace();
 		return 0;
 	}
 
