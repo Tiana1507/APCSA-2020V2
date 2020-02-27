@@ -1,8 +1,10 @@
-package Unit8;
 //(c) A+ Computer Science
 //www.apluscompsci.com
-//Name -
+//Name - andrew tian
 //Date -
+package Unit8;
+
+import static java.lang.System.*;
 
 public class RayDown
 {
@@ -10,6 +12,13 @@ public class RayDown
 	//are in decreasing order [31,12,6,2,1]
 	public static boolean go(int[] numArray)
 	{
+		int checknum;
+		for (int i =1; i <= numArray.length -1; i++) {
+			checknum = numArray[i-1];
+			if (checknum <= numArray[i]) {
+				return false;
+			}
+		}
 		return true;
-	}	
+	}
 }
