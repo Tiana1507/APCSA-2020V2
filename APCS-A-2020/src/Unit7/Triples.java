@@ -62,9 +62,11 @@ public class Triples
         } // end for
 		return gcfoutput;
 	}
+	/*
 	public String toString()
 	{
 		//triplecheckerfunction does it already
 		return triplesChecker();
 	}
+	*/
 }
