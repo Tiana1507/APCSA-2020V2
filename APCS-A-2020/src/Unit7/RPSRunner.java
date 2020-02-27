@@ -1,7 +1,7 @@
 package Unit7;
 //(c) A+ Computer Science
 //www.apluscompsci.com
-//Name -  
+//Name -  andrew tian
 
 import java.util.Scanner;
 import static java.lang.System.*;
@@ -10,17 +10,21 @@ public class RPSRunner
 {
 	public static void main(String args[])
 	{
-		Scanner keyboard = new Scanner(System.in);
-		char response;
-		
-		//add in a do while loop after you get the basics up and running
-		
-			String player = "";
-		
-			out.print("type in your prompt [R,P,S] :: ");
-			
-			//read in the player value
-		
-			RockPaperScissors game = new RockPaperScissors();		
-	}
+		System.out.println("Welcome to Rock Paper Scissors!");
+		String response = "y";
+  while (response.equals("y"))
+    {
+	  Scanner keyboard = new Scanner(in);
+	  RockPaperScissors game = new RockPaperScissors();	
+	  
+	  out.print("Pick Your Weapon [R,P,S] :: ");
+	  		String player = keyboard.nextLine();
+	  		game.setPlayers(player);
+	  		System.out.println(game.returnString());
+	  		
+	  	System.out.println("Would you like to play again? [y/n] ::");
+	  	response = keyboard.nextLine();
+	  	System.out.println("Bye");
+    }
+}
 }

@@ -29,7 +29,7 @@ public class DoubleRunner
 		run.printArray();
 		System.out.println("\nBiggest = " + run.getBiggest() + "\n");
 		
-		//add more test cases
+		//add more test cases WORKS!
 				
 	}
 }
