@@ -53,6 +53,5 @@ public class DeckTester {
 		System.out.println("  deal: " + d.deal());
 		System.out.println();
 		System.out.println();
-		}
 	}
 }

@@ -44,7 +44,18 @@ class Deck{
 		
 	}
 	
+	public boolean isEmpty() {
+		return size()==0;
+	}
+	
    //write a shuffle() method
+	public Card dealCard() {
+		Card topCard;
+		if(!isEmpty())
+			topCard = cards.get(top);
+		else//put something here if the length of the deck is 0, so probably do nothing
+	}
+	
    	//use Collections.shuffle
    	//reset the top card 
 }
