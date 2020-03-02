@@ -24,12 +24,14 @@ class Deck{
    	//loop through all suits
    		//loop through all faces 1 to 13
    			//add a new TwentyOneCard to the deck
+	
 	public Deck() {
 		cards = new ArrayList<Card>();
 		top = 51;
 		
 		for (int s = 0;s<SUITS.length;s++) {
 			for (int f = 1; f<=13; f++) {
+				//adding new cards with new suits and new faces in order
 				cards.add(new Card(SUITS[s],f));
 			}
 		}
@@ -37,7 +39,12 @@ class Deck{
 	
    //make a dealCard() method that returns the top card
    
+	public Deck(String[]ranks, String[]suits, int[]pointValues) {
+		cards = new ArrayList<Cards>();
+		
+	}
+	
    //write a shuffle() method
-   	//use Colletions.shuffle
+   	//use Collections.shuffle
    	//reset the top card 
 }
