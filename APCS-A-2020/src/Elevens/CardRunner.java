@@ -15,18 +15,18 @@ public class CardRunner
 		out.println(one.getFace());
 		*/
 		
-		Card two = new Card("DIAMONDS", 1);
+		Card two = new Card("ace","DIAMONDS", 1);
 		out.println(two);
 		two.setFace(3);
 		out.println(two);
 
-		Card three = new Card("CLUBS", 4);
+		Card three = new Card("Four","CLUBS", 4);
 		out.println(three);
 
-		Card four = new Card("SPADES", 12);
+		Card four = new Card("Queen","SPADES", 12);
 		out.println(four);
 
-		Card five = new Card("HEARTS", 12);
+		Card five = new Card("QUEEN","HEARTS", 12);
 		out.println(five);
 	}
 }

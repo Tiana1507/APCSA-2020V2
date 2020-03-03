@@ -1,9 +1,9 @@
 package Elevens;
 //(c) A+ Computer Science
 //www.apluscompsci.com
-//Name -
+//Name - andrew tian
 
-public class Card
+public class Card<instance>
 {
 	public static final String FACES[] = {"ZERO","ACE","TWO","THREE","FOUR",
 			"FIVE","SIX","SEVEN","EIGHT","NINE","TEN","JACK","QUEEN","KING"};
@@ -14,16 +14,17 @@ public class Card
 		private String suit;
 		//int face
 		
-		private String rank;
+		private int rank;
 		private int pointValue;
 		
 
   	//constructors
-	public Card (String suit, int cardFaceValue) {
+	public Card (String stringcardvalue, String suit, int cardFaceValue) {
 		this.suit = suit;
 		setFace(cardFaceValue);
-		getFace();
-		getSuit();
+		suit();
+		rank();
+		pointValue();
 		toString();
 	}
 
@@ -31,11 +32,12 @@ public class Card
 		//set methods
 	public void setFace (int cardFaceValue) {
 		face = cardFaceValue;
+		pointValue = cardFaceValue;
 	}
 
   	//accessors
 		//get methods
-	public String getFace () {
+	public String rank () {
 		for (int i = 0; i < FACES.length;i++) {
 			if (i==face) {
 				return FACES[i];
@@ -44,13 +46,27 @@ public class Card
 		return "";
 	}
 
-	public String getSuit () {
+	public String suit () {
 		return suit;
+	}
+	
+	public int pointValue () {
+		return pointValue;
+	}
+	
+	//equals other card
+	public boolean matches(Object cardcompare) {
+		System.out.println(cardcompare.toString());
+		System.out.println(toString());
+		if (cardcompare.toString().equals(toString())) {
+			return true;
+		}
+		return false;
 	}
 	
   	//toString
 	public String toString() {
-		String returnstring = getFace() + " of " + suit;
+		String returnstring = rank() + " of " + suit + " (point value = " + pointValue + ")";
 		return returnstring;
 	}
 
