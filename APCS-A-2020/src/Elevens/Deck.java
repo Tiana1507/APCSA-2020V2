@@ -32,30 +32,36 @@ class Deck{
 		for (int s = 0;s<SUITS.length;s++) {
 			for (int f = 1; f<=13; f++) {
 				//adding new cards with new suits and new faces in order
-				cards.add(new Card(SUITS[s],f));
+				cards.add(new Card(SUITS[s],null, f));
 			}
 		}
 	}
 	
-   //make a dealCard() method that returns the top card
+//make a dealCard() method that returns the top card
    
 	public Deck(String[]ranks, String[]suits, int[]pointValues) {
-		cards = new ArrayList<Cards>();
+		cards = new ArrayList<Card>();
 		
 	}
 	
 	public boolean isEmpty() {
-		return size()==0;
+		if (SUITS.length==0)
+			return true;
+		return false;
 	}
-	
-   //write a shuffle() method
-	public Card dealCard() {
-		Card topCard;
-		if(!isEmpty())
+
+	//method to deal Cards
+	public Card<?> dealCard() {
+		Card<?> topCard;
+		if(!isEmpty()) {
 			topCard = cards.get(top);
-		else//put something here if the length of the deck is 0, so probably do nothing
+			return topCard;
+		}
+			//put something here if the length of the deck is 0, so probably do nothing
+		return null;
 	}
 	
+	//write a shuffle() method
    	//use Collections.shuffle
    	//reset the top card 
 }
