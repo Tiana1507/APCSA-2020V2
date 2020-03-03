@@ -9,14 +9,10 @@ public class Card<instance>
 			"FIVE","SIX","SEVEN","EIGHT","NINE","TEN","JACK","QUEEN","KING"};
 
 	//instance variables
-		//String suit
 		private int face;
 		private String suit;
-		//int face
-		
 		private int rank;
 		private int pointValue;
-		
 
   	//constructors
 	public Card (String stringcardvalue, String suit, int cardFaceValue) {
