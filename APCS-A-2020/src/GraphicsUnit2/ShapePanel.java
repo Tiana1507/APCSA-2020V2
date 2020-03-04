@@ -34,6 +34,7 @@ public class ShapePanel extends JPanel
 	 */
 	public void paint(Graphics window)
 	{
+		// you can have uppercase and lowercase colour varialbes but remember all FINAL variables are in uppercase.
 		window.setColor(Color.WHITE);
 		window.fillRect(0,0,getWidth(), getHeight());
 		window.setColor(Color.BLUE);

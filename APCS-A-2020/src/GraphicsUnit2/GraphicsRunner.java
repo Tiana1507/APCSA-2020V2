@@ -13,6 +13,7 @@ import java.awt.event.ActionListener;
 
 public class GraphicsRunner extends JFrame
 {
+	//these are FInal, meaning you can't change it as you go along. HEre is the only place you can change it. Naming conventions for Final variables is ALL CAPS.
 	private static final int WIDTH = 800;
 	private static final int HEIGHT = 600;
 
@@ -27,7 +28,8 @@ public class GraphicsRunner extends JFrame
 		//getContentPane().add(new MovingShapePanel());
 
 		setVisible(true);
-
+		
+		// this command here means that the close button ACTUALLY WORKS.
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 
