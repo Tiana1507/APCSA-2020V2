@@ -2,7 +2,7 @@ package GraphicsUnit2;
 //(c) A+ Computer Science
 //www.apluscompsci.com
 
-//Name -
+//Name - andrew tian
 //Date -
 //Class -
 //Lab  -
@@ -39,6 +39,8 @@ public class Shape
     window.setColor(color);
     window.fillRect(xPos, yPos, width, height);
 
+    window.setColor(Color.PINK);
+    window.drawOval(100,100,100,100);
     //draw whatever you want
     //    ^
     //  [ :: ]

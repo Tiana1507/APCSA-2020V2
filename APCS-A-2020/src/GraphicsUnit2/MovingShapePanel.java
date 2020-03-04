@@ -2,7 +2,7 @@ package GraphicsUnit2;
 //(c) A+ Computer Science
 //www.apluscompsci.com
 
-//Name -
+//Name - andrew tian
 //Date -
 //Class -
 //Lab  -
@@ -46,16 +46,10 @@ public class MovingShapePanel extends JPanel implements Runnable
 		window.drawString("CREATE YOUR OWN SHAPE!",40,40);
 
 		//tell sh to move and draw
-
-		//this code handles the left and right walls
-		/* uncomment once Shape is built
-		 *
-		if(!(sh.getX()>=10 && sh.getX()<=730))
-		{
-			sh.setXSpeed(-sh.getXSpeed());
-		}
-		*/
-
+		//if(!(sh.getX()>=10 && sh.getX()<=730))
+		//{
+			//sh.setXSpeed(-sh.getXSpeed());
+		//}
 		//add code to handle the top and bottom walls
 
 	}
@@ -66,7 +60,7 @@ public class MovingShapePanel extends JPanel implements Runnable
  	{
  		while(true)
  		{
- 		   Thread.currentThread().sleep(10);
+ 		  Thread.currentThread().sleep(10);
           repaint();
        }
     }catch(Exception e)

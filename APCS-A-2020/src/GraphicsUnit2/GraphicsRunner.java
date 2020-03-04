@@ -2,7 +2,7 @@ package GraphicsUnit2;
 //(c) A+ Computer Science
 //www.apluscompsci.com
 
-//Name -
+//Name - andrew tian
 //Date -
 //Class -
 //Lab  -
@@ -25,7 +25,7 @@ public class GraphicsRunner extends JFrame
 
 		getContentPane().add(new ShapePanel());
 
-		//getContentPane().add(new MovingShapePanel());
+		getContentPane().add(new MovingShapePanel());
 
 		setVisible(true);
 		

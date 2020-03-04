@@ -36,6 +36,7 @@ public class Card<instance>
 	public String rank () {
 		for (int i = 0; i < FACES.length;i++) {
 			if (i==face) {
+				rank = i;
 				return FACES[i];
 			}
 		}
