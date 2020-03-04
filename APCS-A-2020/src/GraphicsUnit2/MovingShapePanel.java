@@ -15,6 +15,11 @@ import java.awt.Canvas;
 import javax.swing.JPanel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+
 
 public class MovingShapePanel extends JPanel implements Runnable
 {
@@ -26,8 +31,11 @@ public class MovingShapePanel extends JPanel implements Runnable
 		setVisible(true);
 
 		//refer sh to a new Shape
-
-
+		sh = new Shape(300,300,50,50,Color.black,5,5);
+			
+		ArrayList<Shape> shapes = new ArrayList<Shape>();
+		shapes.add(sh);
+		
 		new Thread(this).start();
 	}
 
