@@ -1,7 +1,7 @@
 package Elevens;
 //(c) A+ Computer Science
 //www.apluscompsci.com
-//Name -
+//Name - andrew tian
 
 import static java.lang.System.*;
 import java.awt.Color;
@@ -10,10 +10,10 @@ public class CardRunner
 {
 	public static void main( String args[] )
 	{
-		/*Card one = new Card("SPADES", 9);
-		out.println(one.getSuit());
-		out.println(one.getFace());
-		*/
+		//Card one = new Card("SPADES", 9);
+		//out.println(one.getSuit());
+		//out.println(one.getFace());
+		
 		
 		Card two = new Card("ace","DIAMONDS", 1);
 		out.println(two);

@@ -1,67 +1,81 @@
 package Elevens;
 //(c) A+ Computer Science
 //www.apluscompsci.com
-//Name - andrew tian
+//Name - Andrew Tian
+import java.util.Random;
+import static java.lang.System.*;
 
-public class Card<instance>
+public class Card
 {
-	public static final String FACES[] = {"ZERO","ACE","TWO","THREE","FOUR",
-			"FIVE","SIX","SEVEN","EIGHT","NINE","TEN","JACK","QUEEN","KING"};
-
-	//instance variables
-		private int face;
-		private String suit;
-		private int rank;
-		private int pointValue;
-
-  	//constructors
-	public Card (String stringcardvalue, String suit, int cardFaceValue) {
-		this.suit = suit;
-		setFace(cardFaceValue);
-		suit();
-		rank();
-		pointValue();
+	public static final String FACES[] = {"ZERO","ACE","TWO","THREE","FOUR","FIVE","SIX","SEVEN","EIGHT","NINE","TEN","JACK","QUEEN","KING"};
+	
+	private int faceNum = 0;
+	private String suitName = "";
+	private String faceName = "";
+	private String rankName = "";
+	
+	//creates a card with 2 paras. This one is for the deckrunner.
+	public Card(String suit, int face) {
+		set2Card(suit,face);
 		toString();
 	}
-
-	// modifiers
-		//set methods
 	
-	public void setAll(String stringcardvalue, String suit, int cardFaceValue) {
-		this.suit = suit;
-		setFace(cardFaceValue);
-		suit();
-		rank();
-		pointValue();
+	//creates a card with 3 paras. This one is for cardtester
+	public Card(String suit, String rank, int face) {
+		set3Card(suit, rank, face);
 	}
 	
-	public void setFace (int cardFaceValue) {
-		face = cardFaceValue;
-		pointValue = cardFaceValue;
+	//sets the 3 arg card
+	public void set3Card(String rank, String suit, int face) {
+		setFace(face);
+		setSuit(suit);
+		setRank(rank);
 	}
-
-  	//accessors
-		//get methods
-	public String rank () {
-		for (int i = 0; i < FACES.length;i++) {
-			if (i==face) {
-				rank = i;
-				return FACES[i];
-			}
+	
+	//sets the 2 arg card
+	public void set2Card(String suit, int face) {
+		setFace(face);
+		setSuit(suit);
+		toString();
+	}
+//makes a card given two parameters (for the decks)
+	
+	public String setRank(String rank) {
+		rankName = rank;
+		return  rankName;
+	}
+//all the methods that set values
+	public String setFace(int face) {
+		faceNum = face;
+		faceName =  FACES[faceNum];
+		return  faceName;
+	}
+	
+	public String setSuit(String suit) {
+		suitName = suit;
+		return suitName;
 		}
-		return "";
-	}
 
-	public String suit () {
-		return suit;
+//methods to call to get rank, suit, and face
+	public String rank() {
+		return rankName;
 	}
 	
-	public int pointValue () {
-		return pointValue;
+	public String suit() {
+		return suitName;
 	}
 	
-	//equals other card
-	public boolean matches(Object cardcompare) {
+	public int pointValue() {
+		return faceNum;
+	}
+	
+	//prints out
+	public String toString() {
+		return (FACES[faceNum] + " of " + suitName + ", point value is " + faceNum );
+	}
+ 
+	//matching function, check if they are the same or not.
+ 	public boolean matches(Object cardcompare) {
 		System.out.println(cardcompare.toString());
 		System.out.println(toString());
 		if (cardcompare.toString().equals(toString())) {
@@ -69,12 +83,4 @@ public class Card<instance>
 		}
 		return false;
 	}
-	
-  	//toString
-	public String toString() {
-		String returnstring = rank() + " of " + suit + " (point value = " + pointValue + ")";
-		return returnstring;
-	}
-
-
 }
