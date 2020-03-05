@@ -38,11 +38,12 @@ public class Deck {
 				}
 			}
 		}
+		//shuffle the deck
 		shuffle();
 	}
 
 	
-	//deck for 3 var cards
+	//deck with all of the paras.
 	 public Deck(int[] vals, String[] suits, String[] ranks) {
 		//loops through each card in deck
 		for (int count = 0; count < vals.length; count++) {
@@ -56,6 +57,7 @@ public class Deck {
 				}
 			}
 		}
+		//shuffle the deck.
 		shuffle();
 	}
 	 
