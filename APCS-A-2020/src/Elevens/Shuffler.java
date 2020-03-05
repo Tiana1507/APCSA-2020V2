@@ -20,39 +20,36 @@ public class Shuffler {
 	 * @param args is not used.
 	 */
 	public static void main(String[] args) {
-		System.out.println("Results of " + SHUFFLE_COUNT +
-								 " consecutive perfect shuffles:");
+		System.out.println("Results of " + SHUFFLE_COUNT + " consecutive perfect shuffles:");
 		int[] values1 = new int[VALUE_COUNT];
 		for (int i = 0; i < values1.length; i++) {
 			values1[i] = i;
 			}
-		for (int j = 1; j <= SHUFFLE_COUNT; j++) {
+		for (int i1 = 1; i1 <= SHUFFLE_COUNT; i1++) {
 			perfectShuffle(values1);
-			System.out.print("  " + j + ":");
-			for (int k = 0; k < values1.length; k++) {
-				System.out.print(" " + values1[k]);
+			System.out.print("  " + i1 + ":");
+			for (int i2 = 0; i2 < values1.length; i2++) {
+				System.out.print(" " + values1[i2]);
 			}
 			System.out.println();
 		}
 		System.out.println();
 
-		System.out.println("Results of " + SHUFFLE_COUNT +
-								 " consecutive efficient selection shuffles:");
+		System.out.println("Results of " + SHUFFLE_COUNT + " consecutive efficient selection shuffles:");
 		int[] values2 = new int[VALUE_COUNT];
 		for (int i = 0; i < values2.length; i++) {
 			values2[i] = i;
 			}
-		for (int j = 1; j <= SHUFFLE_COUNT; j++) {
+		for (int i1 = 1; i1 <= SHUFFLE_COUNT; i1++) {
 			selectionShuffle(values2);
-			System.out.print("  " + j + ":");
-			for (int k = 0; k < values2.length; k++) {
-				System.out.print(" " + values2[k]);
+			System.out.print("  " + i1 + ":");
+			for (int i2 = 0; i2 < values2.length; i2++) {
+				System.out.print(" " + values2[i2]);
 			}
-			System.out.println();
+			System.out.println("");
 		}
-		System.out.println();
+		System.out.println("");
 	}
-
 
 	/**
 	 * Apply a "perfect shuffle" to the argument.
@@ -60,10 +57,25 @@ public class Shuffler {
 	 * the cards in one half with the cards in the other.
 	 * @param values is an array of integers simulating cards to be shuffled.
 	 */
-	public static void perfectShuffle(int[] values) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 3 *** */
+	public static void perfectShuffle(int[] values) {
+		int shuffled[] = new int[52];
+		int indexnum = 0;
+		//The perfect shuffle algorithm splits the deck in half, then interleaves the cards in one half with the cards in the other.
+		//does all the evens first
+		for (int i = 0; i <=25;  i++) {
+			shuffled[indexnum] = values[i];
+			indexnum = indexnum+2;
+		}
+		//then the odds
+		indexnum = 1;
+		for(int i = 26; i <=51; i++) {
+			shuffled[indexnum] = values[i];
+			indexnum = indexnum+2;
+		}
 	}
 
+	
 	/**
 	 * Apply an "efficient selection shuffle" to the argument.
 	 * The selection shuffle algorithm conceptually maintains two sequences
@@ -75,7 +87,17 @@ public class Shuffler {
 	 * searching for an as-yet-unselected card.
 	 * @param values is an array of integers simulating cards to be shuffled.
 	 */
+	/* *** TO BE IMPLEMENTED IN ACTIVITY 3 *** */	
 	public static void selectionShuffle(int[] values) {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 3 *** */
+		//The selection shuffle algorithm conceptually maintains two sequences of cards: the selected cards (initially empty) and the not-yet-selected cards (initially the entire deck).
+		int shuffled[] = new int[52];
+		int indexnum = 0;
+		//randomly remove a card from those not yet selected and add it to the selected cards.
+		for(int k = 0; k <=51; k++) {
+			indexnum = (int)Math.random()*(52);
+			shuffled[k] = values[indexnum];
+			values[indexnum] = 0;
+		}
 	}
 }
+	
