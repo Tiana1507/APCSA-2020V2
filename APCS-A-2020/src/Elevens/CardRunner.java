@@ -10,6 +10,7 @@ public class CardRunner
 {
 	public static void main( String args[] )
 	{
+		//old test cases
 		//Card one = new Card("SPADES", 9);
 		//out.println(one.getSuit());
 		//out.println(one.getFace());
