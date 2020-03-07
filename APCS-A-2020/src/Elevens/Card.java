@@ -9,71 +9,33 @@ public class Card
 {
 	public static final String FACES[] = {"ZERO","ACE","TWO","THREE","FOUR","FIVE","SIX","SEVEN","EIGHT","NINE","TEN","JACK","QUEEN","KING"};
 	
-	private int faceNum = 0;
-	private String suitName = "";
-	private String faceName = "";
-	private String rankName = "";
+	private int face = 0;
+	private String suit = "";
+	private int pointValue = 0;
+	private String rank = "";
 	
-	//creates a card with 2 paras. This one is for the deckrunner.
-	public Card(String suit, int face) {
-		set2Card(suit,face);
-		toString();
-	}
-	
-	//creates a card with 3 paras. This one is for cardtester
-	public Card(String suit, String rank, int face) {
-		set3Card(suit, rank, face);
+	//creates the card
+	public Card() {
+		//set blank at start
+		setSuit("");
+		setRank("");
+		setFace(0);
+		setPointValue(0);
 	}
 	
-	//sets the 3 arg card
-	public void set3Card(String rank, String suit, int face) {
-		setFace(face);
-		setSuit(suit);
-		setRank(rank);
+	//constructors, has a two vars just to satisfy decktester
+	public Card(String cardSuit, int cardFaceValue) {
+		suit = cardSuit;
+		face = cardFaceValue;
 	}
 	
-	//sets the 2 arg card
-	public void set2Card(String suit, int face) {
-		setFace(face);
-		setSuit(suit);
-		toString();
-	}
-//makes a card given two parameters (for the decks)
-	
-	public String setRank(String rank) {
-		rankName = rank;
-		return  rankName;
-	}
-//all the methods that set values
-	public String setFace(int face) {
-		faceNum = face;
-		faceName =  FACES[faceNum];
-		return  faceName;
+  	//constructors, has a third one first just to satisfy the card tester.
+	public Card(String cardFace, String cardSuit, int cardFaceValue) {
+		rank = cardFace;
+		suit = cardSuit;
+		face = cardFaceValue;
 	}
 	
-	public String setSuit(String suit) {
-		suitName = suit;
-		return suitName;
-		}
-
-//methods to call to get rank, suit, and face
-	public String rank() {
-		return rankName;
-	}
-	
-	public String suit() {
-		return suitName;
-	}
-	
-	public int pointValue() {
-		return faceNum;
-	}
-	
-	//prints out
-	public String toString() {
-		return (FACES[faceNum] + " of " + suitName + ", point value is " + faceNum );
-	}
- 
 	//matching function, check if they are the same or not.
  	public boolean matches(Object cardcompare) {
 		System.out.println(cardcompare.toString());
@@ -82,5 +44,55 @@ public class Card
 			return true;
 		}
 		return false;
+	}
+	
+	//all the methods that set values for face, suit, pv, and rank
+	public void setFace(int face) {
+		//adding this turns it into the private instead of the input face value.
+		this.face = face;
+	}
+	
+	public void setSuit(String suit) {
+		this.suit = suit;
+		}
+	
+	public void setPointValue(int pointValue) {
+		this.pointValue = pointValue;
+	}
+	
+	public void setRank(String rank) {
+		this.rank = rank;
+	}
+
+//methods to call to get rank, suit, pointvalue, and face
+	//actually should have get in front of it but the cardtester doesn't read that.
+	public String rank() {
+		return rank;
+	}
+	
+	//actually should have get in front of it but the cardtester doesn't read that.
+	public String suit() {
+		return suit;
+	}
+	
+	//actually should have get in front of it but the cardtester doesn't read that.
+	public int pointValue() {
+		return pointValue;
+	}
+	
+	//actually should have get in front of it but the cardtester doesn't read that.
+	public int face() {
+		return face;
+	}
+	
+	//prints out
+	public String toString() {
+		//if the card is NOT 0 card
+		if(pointValue != 0) {
+			return rank + " of " + suit + " (point value = " + pointValue + ")";
+		}
+		else {
+			return FACES[face]+ " of " + suit;
+		}
 	}
 }
