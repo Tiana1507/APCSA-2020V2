@@ -99,5 +99,8 @@ public class Shuffler {
 			values[indexnum] = 0;
 		}
 	}
+//<<<<<<< HEAD
 }
+//=======
 	
+//>>>>>>> branch 'master' of https://github.com/Tiana1507/APCSA-2020V2.git
