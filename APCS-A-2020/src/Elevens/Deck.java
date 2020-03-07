@@ -1,4 +1,7 @@
 package Elevens;
+//(c) A+ Computer Science
+//www.apluscompsci.com
+//Name - andrew tian
 
 import java.util.List;
 
@@ -9,7 +12,7 @@ import java.util.Collections;
 public class Deck {
 
 	public static final int NUMCARDS = 52;
-	public static String SUIT[] = {"CLUBS", "HEARTS", "DIAMONDS", "SPADES"};
+	public static String[] SUITS = "CLUBS HEARTS DIAMONDS SPADES".split(" ");
 	
 	private List<Card> cards;
 	private int top;
@@ -24,39 +27,45 @@ public class Deck {
 	//loop through all faces 1 to 13
 	//add a new TwentyOneCard to the deck
 	
-	//deck for no intial para cards. This is for the deckrunner.
+	//deck for no intial para cards.
 	public Deck() {
-		//loops through each card in deck
-		for (int count = 1; count <= NUMCARDS; count++) {
-			//loops through each suit
-			for (int suit = 1; suit <= 4; suit++) {
-				//loops through each face
-				for (int face = 1; face <= 13; face ++) {
-					Card printCard = new Card(SUIT[suit], face);
-					printCard.set2Card(SUIT[suit], face);
-					cards.add(printCard);
-				}
+		//initialize cards
+		cards = new ArrayList<Card>();
+		top = 51;
+		
+		//loop suits
+		for(int i1 = 0; i1<SUITS.length; i1++) {
+			//loop 1-13
+			for(int i2 = 1; i2<=13; i2++) {
+				//adds new Card, uses the 2 input card parameter.
+				cards.add(new Card(SUITS[i1], i2));
 			}
 		}
-		//shuffle the deck
+		deckSize = cards.size();
+		top = deckSize-1;
+		
+		//shuffle the deck.
 		shuffle();
+		
 	}
 
 	
-	//deck with all of the paras.
-	 public Deck(int[] vals, String[] suits, String[] ranks) {
-		//loops through each card in deck
-		for (int count = 0; count < vals.length; count++) {
-			//loops through each suit
-			for (int suit = 0; suit < suits.length; suit++) {
-				//loops through each face
-				for (int face = 0; face < ranks.length; face ++) {
-					Card printCard = new Card(suits[suit], ranks[face], vals[count]);
-					printCard.set3Card(suits[suit], ranks[face], vals[count]);
-					cards.add(printCard);
-				}
+	//3 para-deck
+	public Deck(String[] ranks, String[] suits, int[] pointValues) {
+		//initialize cards
+		cards = new ArrayList<Card>();				
+		
+		//loop suits
+		for(int i1 = 0; i1 <suits.length; i1++) {
+			//loop 1-13
+			for(int i2 = 0; i2<ranks.length; i2++) {
+				//adds new Card, uses the 3 input card parameter.
+				cards.add(new Card(ranks[i2], suits[i1] , pointValues[i2]));
 			}
 		}
+		deckSize = cards.size();
+		top = deckSize-1;
+		
 		//shuffle the deck.
 		shuffle();
 	}
@@ -68,34 +77,76 @@ public class Deck {
 		 return false;
 	 }
 	//make a dealCard() method that returns the top card
-	public Card dealCard(int index) {
-		return cards.get(index);
+	 //should actually be called deal card but for some reason deck tester calls it deal.
+	public Card deal() {
+		Card topCard = new Card();
+		if( isEmpty() )
+			return new Card();
+		else {
+			if (top >= 0)
+				topCard = cards.get(top);
+		}
+		
+		//reduce the deck size after taking one out so next time through it can index properly.
+		top -= 1;
+		deckSize -= 1;
+		return topCard;
+	}
+	
+	//make a dealCard() method that returns the top card, this is NOT THE SAME AS THE DEAL METHOD.
+	public Card dealCard(int i) {
+		return cards.get(i-1);
 	}
 	
 	public int size() {
 		deckSize = cards.size();
 		return deckSize;
 	}
-	//method to deal Cards
-	public Card deal() {
-		if (isEmpty()) {
-			return null;
-		}
-		for (int i = deckSize; i > 0; i--) {
-			dealCard(i);
-			deckSize = deckSize - 1;
-			top = i+1;
-		}
-		return cards.get(0);
-	}
+	
 	//write a shuffle() method
    	//use Collections.shuffle
    	//reset the top card
 	public void shuffle() {
+		//simpler method lol
+		Collections.shuffle(cards);
+		/* old method doesn't work consistently.
 		for (int i = deckSize; i <=1; i--) {
-			int randindex = (int)Math.random()*(i);
-			Collections.swap(cards,  randindex,  i);
+			int randindex = (int)Math.random() * (i);
+			//takes a randint in order to reorient the cards.
+			if (i >= 0) {
+				Collections.swap(cards, randindex, i);
+			}
 		}
 		deckSize = cards.size();
+		*/
+	}
+	
+	//toString method
+	public String toString() {
+		String returnString = "size = " + deckSize + "\nUndealt cards: \n";
+
+		//loops through index to find undealt cards
+		for (int i = deckSize - 1; i >= 0; i--) {
+			returnString = returnString + cards.get(i);
+			if (i != 0) {
+				returnString = returnString + ", ";
+			}
+			else if ((deckSize - i) % 2 == 0) {
+				returnString = returnString + "\n";
+			}
+		}
+
+		//loops through to find dealt cards
+		returnString = returnString + "\nDealt cards: \n";
+		for (int i = cards.size() - 1; i >= deckSize; i--) {
+			returnString = returnString + cards.get(i);
+			if (i != deckSize) {
+				returnString = returnString + ", ";
+			}
+			else if ((i - cards.size()) % 2 == 0) {
+				returnString = returnString + "\n";
+			}
+		}
+		return returnString;
 	}
 }
