@@ -1,7 +1,8 @@
 package Elevens;
+package Elevens;
 //(c) A+ Computer Science
 //www.apluscompsci.com
-//Name -
+//Name - andrew tian
 
 public class BlackJackCard extends Card
 {
@@ -15,12 +16,11 @@ public class BlackJackCard extends Card
 	public int getValue()
 	{
 		Card boomer = new Card("SPADES", 9);
-		if(boomer.getFace() == 1 )
+		if(boomer.face() == 1 )
 			return 11;
-		if(boomer.getFace() >= 10 )
+		if(boomer.face() >= 10 )
 			return 10;
-		return boomer.getFace();
-		return 0;
+		return boomer.face();
 	}
 
   	//toString
