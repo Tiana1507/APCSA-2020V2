@@ -134,7 +134,7 @@ public class StartPanel extends JPanel
     
     setupPanel();
     setupLayout();
-    setupListeners();
+    setupListeners(); //contact systems in the computer to see if you click/type things in.
   }
   
   /**
@@ -151,6 +151,7 @@ public class StartPanel extends JPanel
    */
   private boolean validate(String answerText, String clueText)
   {
+	  //write this method.
     boolean validClue = false;
     boolean validAnswer = false;
     

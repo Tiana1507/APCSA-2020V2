@@ -12,11 +12,14 @@ public class CelebrityGame
 	/**
 	 * A reference to a Celebrity or subclass instance.
 	 */
+	
+	private Celebrity gameCelebrity;
 
 	/**
 	 * The GUI frame for the Celebrity game.
 	 */
-
+	private CelebrityFrame gameWindow;
+	
 	/**
 	 * The ArrayList of Celebrity values that make up the game
 	 */
@@ -28,6 +31,10 @@ public class CelebrityGame
 	 */
 	public CelebrityGame()
 	{
+		//instantiates the celebGameList
+		celebGameList.add(gameCelebrity);
+		
+		gameWindow = new CelebrityFrame(this);
 	}
 
 	/**
@@ -35,6 +42,9 @@ public class CelebrityGame
 	 */
 	public void prepareGame()
 	{
+		//resets the game by changing screens.
+		celebGameList = new ArrayList<Celebrity>();
+		gameWindow.replaceScreen("START");
 	}
 
 	/**
@@ -57,7 +67,11 @@ public class CelebrityGame
 	 */
 	public void play()
 	{
-		
+		if (celebGameList != null && celebGameList.size() > 0 )
+		{
+		this.gameCelebrity = celebGameList.get(0);
+		gameWindow.replaceScreen("GAME");
+		}
 	}
 
 	/**
@@ -72,7 +86,9 @@ public class CelebrityGame
 	 */
 	public void addCelebrity(String name, String guess, String type)
 	{
-		
+		Celebrity newCeleb = new Celebrity(name,guess);
+		//add in type checker later
+		this.celebGameList.add(newCeleb);
 	}
 
 	/**
@@ -94,9 +110,26 @@ public class CelebrityGame
 	 */
 	public boolean validateClue(String clue, String type)
 	{
-		return false;
-	}
+		// String clueToCheck = clue.trim();
+		// int clueLength = clueToCheck.length();
 
+		// return clueLength >= 10 || clueToCheck.contains(" ");
+
+		boolean validClue = false;
+		if (clue.trim().length() >= 10) {
+			validClue = true;
+			if (type.equalsIgnoreCase("lit terature")) {
+				String[] temp = clue.split(",");
+				if (temp.length > 1) {
+					validClue = true;
+				} else {
+					validClue = false;
+				}
+			}
+			// You will need to add an else if condition here for your subclass
+		}
+		return validClue;
+	}
 	/**
 	 * Accessor method for the current size of the list of celebrities
 	 * 

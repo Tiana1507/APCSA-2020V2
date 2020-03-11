@@ -9,13 +9,11 @@ public class Celebrity
 	/**
 	 * The clue to determine the celebrity
 	 */
-	
 	private String clue;
 	
 	/**
 	 * The answer or name of the celebrity.
 	 */
-	
 	private String answer;
 	
 	/**
@@ -71,7 +69,7 @@ public class Celebrity
 	@Override
 	public String toString()
 	{
-		return "The Celebrity was " + answer + " and the clue was " + clue;
+		return "The Celebrity was: " + answer + "\nThe clue was: " + clue;
 	}
 	
 }

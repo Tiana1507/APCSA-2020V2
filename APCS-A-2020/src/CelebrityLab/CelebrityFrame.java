@@ -17,7 +17,6 @@ public class CelebrityFrame extends JFrame
 	 * The instance of the panel used for playing the game.
 	 */
 	private CelebrityPanel gamePanel;
-	
 	/**
 	 * Blank panel used for the CardLayout switching screens feature.
 	 */
@@ -42,7 +41,6 @@ public class CelebrityFrame extends JFrame
 	{
 		//The first line of any subclass should ALWAYS be a correct call to the super constructor.
 		super();
-	
 	}
 	
 	/**
