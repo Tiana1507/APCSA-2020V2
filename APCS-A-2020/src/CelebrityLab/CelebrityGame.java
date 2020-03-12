@@ -57,7 +57,11 @@ public class CelebrityGame
 	 */
 	public boolean processGuess(String guess)
 	{
-		return false;
+		String myGuess = guess.trim();
+		if (myGuess.equalsIgnoreCase(gameCelebrity)) {
+			return true;
+		}
+		else return false;
 	}
 
 	/**
@@ -118,7 +122,7 @@ public class CelebrityGame
 		boolean validClue = false;
 		if (clue.trim().length() >= 10) {
 			validClue = true;
-			if (type.equalsIgnoreCase("lit terature")) {
+			if (type.equalsIgnoreCase("litterature")) {
 				String[] temp = clue.split(",");
 				if (temp.length > 1) {
 					validClue = true;
