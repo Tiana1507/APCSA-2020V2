@@ -9,6 +9,7 @@ public class Cereal {
 
 	public Cereal()
 	{
+		
 	}
 
 	public Cereal (String n, int c, int p)
