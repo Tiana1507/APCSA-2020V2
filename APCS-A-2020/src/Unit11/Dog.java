@@ -13,6 +13,7 @@ public class Dog
   	age = a;
   	name = n;
   } 
+  //test commit from new device
   	 
   public String getName()
   {
