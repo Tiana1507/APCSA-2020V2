@@ -17,6 +17,7 @@ public class CelebrityFrame extends JFrame
 	 * The instance of the panel used for playing the game.
 	 */
 	private CelebrityPanel gamePanel;
+	
 	/**
 	 * Blank panel used for the CardLayout switching screens feature.
 	 */
@@ -46,6 +47,7 @@ public class CelebrityFrame extends JFrame
 		this.gamePanel = new CelebrityPanel(controller);
 		this.startPanel = new StartPanel(controller);
 		setupFrame();
+	
 	}
 	
 	/**
@@ -66,7 +68,6 @@ public class CelebrityFrame extends JFrame
 		//Must be the last line of the configuration segment to allow the GUI to be displayed. 
 		//If not set as true the window will not display and the app will terminate.
 		this.setVisible(true); 
-		
 	}
 	
 	/**
@@ -75,7 +76,6 @@ public class CelebrityFrame extends JFrame
 	 */
 	public void replaceScreen(String screen)
 	{
-		//NTS use .equals for string. The GAME here matches up with the gamePanel name in the setupFrame.
 		if(screen.equals("GAME"))
 		{
 			//If the selected screen is the game, sends the first clue to the screen.
