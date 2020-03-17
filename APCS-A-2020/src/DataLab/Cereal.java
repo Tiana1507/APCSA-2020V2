@@ -2,23 +2,31 @@ package DataLab;
 import static java.lang.System.*;
 
 public class Cereal {
-		
+	
+	
+	//variables etc
 	private int protein;
 	private int carbs;
 	private String name;
 
+	
+	
 	public Cereal()
 	{
 		
 	}
 
+	
+	//constructors
 	public Cereal (String n, int c, int p)
 	{
 		setCarbs(c);
 		setProtein(p);
 		setName(n);
 	}
-		
+	
+	
+	//carbs
 	public int getCarbs()
 	{
 		return carbs;
@@ -29,6 +37,8 @@ public class Cereal {
 		carbs = c;
 	}
 	
+	
+	//proteins
 	public int getProtein()
 	{
 		return protein;
