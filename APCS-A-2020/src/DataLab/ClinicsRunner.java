@@ -19,16 +19,17 @@ public class ClinicsRunner {
 		ArrayList<Clinics> allClinics = DS.fetchList(Clinics.class, "row/row/season", "row/row/postal_code", "row/row/street1", "row/row/city", "row/row/state");
 		System.out.println("Number of Clinics: " + allClinics.size());
 
-		Scanner scanner = new Scanner(System.in);
-		System.out.println("Enter a Medical Season (2014-2015, 2015-2016, 2016-2017, 2017-2018, 2018-2019, 2019-2020): ");
-		String season = scanner.next();
-		int max = 0;
 		
+		//lets people input a medical season.
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("Enter a Medical Season ('2014-2015', '2015-2016', '2016-2017', '2017-2018', '2018-2019', '2019-2020'): ");
+		//sets their output to season.
+		String season = scanner.next();		
 		
 		for (Clinics cl : allClinics) {
 			if (cl.getSeason().equalsIgnoreCase(season)) {
 				//if matches to required year, returns a nice formatted address of the clinic.
-				//Will output: street, city, state, postal/zip code.
+				//for some reason the state feature doesn't work.
 				System.out.println("Clinic Location: " + cl.getStreet() + ", " + cl.getCity() + ", " + cl.getState() + ", " + cl.getpostalCode());
 			}
 		}
