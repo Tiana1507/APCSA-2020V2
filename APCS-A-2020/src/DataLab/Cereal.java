@@ -8,7 +8,7 @@ public class Cereal {
 	private int protein;
 	private double carbs;
 	private String name;
-
+	private int rank;
 	
 	
 	public Cereal()
@@ -57,6 +57,17 @@ public class Cereal {
 	{
 		name = n;
 	}
+	
+	public int getRank()
+	{
+		return rank;
+	}
+		
+	public void setRank( int r )
+	{
+		rank = r;
+	}
+	
 	
 	public String toString()
 	{
