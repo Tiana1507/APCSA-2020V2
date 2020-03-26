@@ -1,6 +1,7 @@
 package DataLab;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 import core.data.DataSource;
@@ -116,6 +117,15 @@ public class CerealRunner {
 			allcereals.get(i).setProtein(cerealprot.get(i));
 		}
 		
+		ArrayList<Cereal> allcerealscopy = new ArrayList();
+		for (int i = 0; i < allcerealscopy.size();i++) {
+			allcerealscopy.add(new Cereal());
+			allcerealscopy.get(i).setName(cerealnames.get(i));
+			allcerealscopy.get(i).setCarbs(cerealcarbs.get(i));
+			allcerealscopy.get(i).setProtein(cerealprot.get(i));
+		}
+		
+		
 		/*
 		
 		//INCOMPLETE WITHOUT CEREAL DATA SET.
@@ -125,30 +135,70 @@ public class CerealRunner {
 
 		cereals.printUsageString();
 
-		//note to self, find cereal data source later. Don't currently haveo ne.
+		//note to self, find cereal data source later. Don't currently have one.
 		System.out.println("Total Number of Cereals: " + allcereals.size());
 		
 		*/
 		
 		//look for highest protein
-		int highprot = 0;
+		/*int highprot = 0;
 		String highprotcer = "";
 		//look for lowest carbs
 		double lowcarbs = 100000000;
 		String lowcarbcer = "";
+		*/
+	
+		double temp1 = 0;
+		int temp2 = 0;
 		
-		for (Cereal c : allcereals) {
-			if (c.getCarbs() < lowcarbs) {
-				lowcarbs = c.getCarbs();
-				lowcarbcer = c.getName();
+		//Bubble Sort Descending for the cereals by carb.
+		for (int i = 0; i < allcerealscopy.size()-1;i++) {
+			for (int j = 1; j < allcerealscopy.size() - i; j++) {
+				if (allcerealscopy.get(j - 1).getCarbs() < allcerealscopy.get(j).getCarbs()) {
+					temp1 = allcerealscopy.get(j-1).getCarbs();
+					allcerealscopy.get(j-1).setCarbs(allcerealscopy.get(j).getCarbs());
+					allcerealscopy.get(j).setCarbs(temp1);
+				}
 			}
-			if (c.getProtein() > highprot) {
-				highprot = c.getProtein();
-				highprotcer = c.getName();
+		}
+		
+		//Bubble Sort Ascedning for the cereals by prot
+		for (int i = 0; i < allcereals.size()-1;i++) {
+			for (int j = 1; j < allcereals.size() - i; j++) {
+				if (allcereals.get(j - 1).getProtein() > allcereals.get(j).getProtein()) {
+					temp2 = allcereals.get(j-1).getProtein();
+					allcereals.get(j-1).setProtein(allcereals.get(j).getProtein());
+					allcereals.get(j).setProtein(temp2);
+				}
+			}
+		}
+		
+		
+		int temprankstorage = 0;
+		for (int i = 0; i < allcereals.size();i++) {
+			for (int j = 0; j < allcereals.size();j++) {
+				if (cerealnames.get(j).equals(allcereals.get(j).getName())) {
+					temprankstorage = j;
+				}
+			}
+			for (int j = 0; j < allcerealscopy.size();j++) {
+				if (cerealnames.get(j).equals(allcerealscopy.get(j).getName())) {
+					allcereals.get(j).setRank(j + temprankstorage);
+				}
+			}
+		}
+		
+		for (int i = 0; i < allcereals.size() - 1;i++) {
+			for (int j = 1; j < allcereals.size() - i; j++) {
+				if (allcereals.get(j - 1).getRank() > allcereals.get(j).getRank()) {
+					temp2 = allcereals.get(j-1).getRank();
+					allcereals.get(j-1).setRank(allcereals.get(j).getRank());
+					allcereals.get(j).setRank(temp2);
+				}
 			}
 		}
 
-		System.out.println("The Cereal with the most protein: " + highprotcer + " and the one with the least carbs is: " + lowcarbcer);
+		System.out.println("The Cereal with the most protein and least carbs Combination is: " + allcereals.get(0).getName());
 
 	}
 
