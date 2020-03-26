@@ -6,7 +6,7 @@ public class Cereal {
 	
 	//variables etc
 	private int protein;
-	private int carbs;
+	private double carbs;
 	private String name;
 
 	
@@ -18,7 +18,7 @@ public class Cereal {
 
 	
 	//constructors
-	public Cereal (String n, int c, int p)
+	public Cereal (String n, double c, int p)
 	{
 		setCarbs(c);
 		setProtein(p);
@@ -27,12 +27,12 @@ public class Cereal {
 	
 	
 	//carbs
-	public int getCarbs()
+	public double getCarbs()
 	{
 		return carbs;
 	}
 		
-	public void setCarbs( int c )
+	public void setCarbs( double c )
 	{
 		carbs = c;
 	}
