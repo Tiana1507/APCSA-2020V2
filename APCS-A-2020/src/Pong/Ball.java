@@ -70,8 +70,10 @@ public class Ball extends Block implements Collidable
    
 	public boolean equals(Object obj) {
 		Ball other = (Ball) obj;
-		return super.equals(other) && xSpeed == other.getXSpeed() 
-				&& ySpeed == other.getYSpeed();
+		if (super.equals(other) && xSpeed == other.getXSpeed() && ySpeed == other.getYSpeed()) {
+			return true;
+		}
+		return false;
 	}
 
 	public int getXSpeed() {
