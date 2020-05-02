@@ -34,10 +34,12 @@ class SpeedUpBall extends Ball {
    public void setXSpeed( int xSpd ) {
 	   if (xSpd<0) super.setXSpeed(xSpd-1);
 	   else super.setXSpeed(xSpd+1);
+	   //System.out.println("UP Y SPEED");
    }
 
    public void setYSpeed( int ySpd ) {
 	   if (ySpd<0) super.setYSpeed(ySpd-1);
 	   else super.setYSpeed(ySpd+1);
+	   //System.out.println("UP Y SPEED");
    }
 }
