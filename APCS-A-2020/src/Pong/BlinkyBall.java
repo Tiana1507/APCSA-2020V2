@@ -7,7 +7,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.util.Random;
 
-class BlinkyBall extends SpeedUpBall
+class BlinkyBall extends Ball
 {
 
    //constructors
@@ -15,27 +15,36 @@ class BlinkyBall extends SpeedUpBall
 		super();
    }
 
+   
    public BlinkyBall(int x, int y) {
 	   super(x, y);
    }
 
-   public BlinkyBall(int x, int y, int wid, int ht) {
-	   super(x, y, wid, ht);
+   
+   public BlinkyBall(int x, int y, int wid, int heit) {
+	   super(x, y, wid, heit);
+   }
+   
+
+   public BlinkyBall(int x, int y, int wid, int heit, int xSpd, int ySpd) {
+	   super(x, y, wid, heit, xSpd, ySpd);
+   }
+   
+
+   //full version construc
+   public BlinkyBall(int x, int y, int wid, int heit, Color col, int xSpd, int ySpd) {
+	   super(x, y, wid, heit, col, xSpd, ySpd);
    }
 
-   public BlinkyBall(int x, int y, int wid, int ht, int xSpd, int ySpd) {
-	   super(x, y, wid, ht, xSpd, ySpd);
-   }
-
-   public BlinkyBall(int x, int y, int wid, int ht, Color col, int xSpd, int ySpd) {
-	   super(x, y, wid, ht, col, xSpd, ySpd);
-   }
-
+   
    public Color randomColor() {
-   		int r = (int)(Math.random()*256);		//use Math.random()
- 		int g = (int)(Math.random()*256);
- 		int b = (int)(Math.random()*256);
- 		return new Color(r,g,b);
+	   //note has to be from 0 to 255
+   		int randnum1 = (int) (Math.random() * 256);
+   		int randnum2 = (int) (Math.random() * 256);
+   		int randnum3 = (int) (Math.random() * 256);
+	    //use Math.random()
+
+ 		return new Color(randnum1,randnum2,randnum3);
    }
 
    public void moveAndDraw(Graphics window) {
