@@ -42,9 +42,9 @@ class InvisibleBall extends SpeedUpBall
  public Color regColor()
  {
 	//this is white so visible.
- 	int r = 256;
-	int g = 256;
-	int b = 256;
+ 	int r = 255;
+	int g = 255;
+	int b = 255;
 	return new Color(r,g,b);
  }
 
