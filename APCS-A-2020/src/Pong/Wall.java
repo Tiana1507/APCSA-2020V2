@@ -1,33 +1,37 @@
 package Pong;
 
-//wall is here to set the boundaries
 public class Wall extends Block
 {
-	private int Width;
-	private int Height;
+	//this one is here to replace the old stuff
+	private int width, height;
 	
-	public Wall() {
+	public Wall()
+	{
 		setPos(0, 0);
-		Width=800;
-		Height=600;
+		width = 800;
+		height = 600;
 	}
 	
-	public Wall(int newWidth, int newHeight) {
+	public Wall(int wid, int hei)
+	{
 		setPos(0, 0);
-		Width=newWidth;
-		Height=newHeight;
+		width = wid;
+		height = hei;
 	}
 	
-	public void setnewWidthnewHeightght(int newWidth, int newHeight) {
-		Width = newWidth;
-		Height = newHeight;
+	public void setWidthHeight(int wid, int hei)
+	{
+		width = wid;
+		height = hei;
 	}
 	
-	public int getnewWidth() {
-		return Width;
+	public int getWidth()
+	{
+		return width;
 	}
 	
-	public int getnewHeightght() {
-		return Height;
+	public int getHeight()
+	{
+		return height;
 	}
 }
