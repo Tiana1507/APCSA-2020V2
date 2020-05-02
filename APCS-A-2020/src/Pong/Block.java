@@ -64,6 +64,7 @@ public class Block implements Locatable
    
 	public boolean equals(Object obj) {
 		if (((Block) obj).getX() == xPos && ((Block) obj).getY() == yPos){
+			System.out.println("HERE!");
 			return true;
 		}
 		return false;
