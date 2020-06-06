@@ -12,5 +12,6 @@ I plan on expanding this one on my own time--I liked how it turned out and I wan
 
 Project Build 6.5.2020
 Nation, Colonial, Provincial, Municipal *should* be compatible with the display.
+National, Colonial, Provinicial, are being optimized instead of just being Municipal Clones with extra steps
 Plans to add in better UI display systems.
 Note on Ideologies: Yes I forgot some, will probably expand in the next build
