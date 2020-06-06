@@ -1,5 +1,12 @@
 Andrew Tian
 APCSA 2020 Q4 FINAL PROJECT
+Checklist:
+Inheritance (Yes)
+Instructions + Introductions (Yes)
+UI (Yes)
+Clear Goals (Yes, I hope)
+Outside Code (Did not use)
+
 Democracy Simulator:
 I plan on expanding this one on my own time--I liked how it turned out and I want to see how I can expand.
 
